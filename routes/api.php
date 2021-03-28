@@ -23,9 +23,14 @@ Route::post('login', 'RegisterController@login');
    
 Route::middleware('auth:api')->group( function () {
     Route::prefix('customer')->group(function(){
+        Route::get('getCustomers/{customerid?}', 'CustomersController@getCustomers');
         Route::post('createNewCustomer', 'CustomersController@createCustomer');
-        Route::put('updateCustomer/{customerid}&{fullname}&{phone}&{mobile}&{email}&{main_address}', 'CustomersController@updateCustomer');
+        Route::put('updateCustomer', 'CustomersController@updateCustomer');
         Route::delete('deleteCustomer/{customerid}', 'CustomersController@deleteCustomer');
+    });
+
+    Route::prefix('sale')->group(function(){
+        Route::get('getSales/{invoicenumber?}', 'SalesController@getSales');
     });
 
 });
