@@ -31,15 +31,22 @@ class CustomersController extends BaseController
         $customer->fullname = $input['fullname'];
         $customer->email = $input['email'];
         $customer->mobile = $input['mobile'];
+        $customer->phone = $input['phone'];
+        $customer->main_address = $input['main_address'];
         $customer->save();
         
         return $this->sendResponse('Success', 'Customer has been created successfully.');
     }
 
-    public function updateCustomer(Request $request, $customerid, $fullname){
+    public function updateCustomer(Request $request, $customerid, $fullname= null, $phone = null, $mobile = null, $email = null, $main_address = null){
     
         \App\Customer::where('customerid', $customerid)
-        ->update(["fullname" => $fullname]);
+        ->update(["fullname" => $fullname,
+        "phone" => $phone,
+        "mobile" => $mobile,
+        "email" => $email,
+        "main_address" => $main_address
+        ]);
 
         return $this->sendResponse('Success', 'Customer has been updated successfully');
     }
