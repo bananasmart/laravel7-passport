@@ -41,7 +41,7 @@ class CustomersController extends BaseController
     public function updateCustomer(Request $request, $customerid, $fullname= null, $phone = null, $mobile = null, $email = null, $main_address = null){
     
         \App\Customer::where('customerid', $customerid)
-        ->update(["fullname" => $fullname,
+        ->update(["fullname" => $fullname, 
         "phone" => $phone,
         "mobile" => $mobile,
         "email" => $email,
