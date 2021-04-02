@@ -22,14 +22,11 @@ class SalesController extends BaseController
     }
 
     public function getSalesCustomer(Request $request, $invoicenumber){
-        $validator = Validator::make($request->all(), [
-            'invoicenumber' => 'required'
-        ]);
-
-        $customer = \App\Customer::first();
-        $customer = \App\Sale::first();
+     
+        $sale  = new \App\Sale();
+        $sale =  $sale->where('invoicenumber', $invoicenumber)->with('customer')->first();
+        return $sale->customer;
         
-        return $customer;
         
             
 

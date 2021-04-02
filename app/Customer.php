@@ -8,7 +8,7 @@ class Customer extends Model
 {
     protected $table = 'customers';
     public $timestamps = false;
-    protected $fillable = ['customerid'];
+    protected $fillable = [];
     
     public function sale(){
         return $this->hasMany('App\Sale', 'customerid');

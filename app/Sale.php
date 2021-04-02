@@ -12,7 +12,7 @@ class Sale extends Model
 
 
     public function customer(){
-        return $this->belongsTo('App\Customer', 'customerid');
+        return $this->belongsTo('App\Customer', 'customerid', 'customerid');
     }
 
     public function details(){
