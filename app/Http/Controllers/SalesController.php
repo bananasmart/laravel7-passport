@@ -25,11 +25,11 @@ class SalesController extends BaseController
         $validator = Validator::make($request->all(), [
             'invoicenumber' => 'required'
         ]);
-        $sale = \App\Sale::find(1);
-        dd($sale);
+
+        $customer = \App\Customer::first();
+        $customer = \App\Sale::first();
         
-        
-        return $sale;
+        return $customer;
         
             
 
