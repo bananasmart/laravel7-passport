@@ -19,7 +19,19 @@ class SalesController extends BaseController
             $sales = \App\Sale::with('details')->get();
             return $this->sendResponse('Success', $sales);  
         }
-        
     }
-    
-}
+
+    public function getSalesCustomer(Request $request, $invoicenumber){
+        $validator = Validator::make($request->all(), [
+            'invoicenumber' => 'required'
+        ]);
+        $sale = \App\Sale::find(1);
+        dd($sale);
+        
+        
+        return $sale;
+        
+            
+
+        }
+    }

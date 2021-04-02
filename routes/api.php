@@ -31,6 +31,7 @@ Route::middleware('auth:api')->group( function () {
 
     Route::prefix('sale')->group(function(){
         Route::get('getSales/{invoicenumber?}', 'SalesController@getSales');
+        Route::get('getSalesCustomer/{invoicenumber}', 'SalesController@getSalesCustomer');
     });
 
 });

@@ -10,9 +10,4 @@ class SaleDetails extends Model
     protected $fillable = [];
     public $timestamps = false;
 
-    public function sale(){
-        return $this->belongsTo('\App\Sale', 'invoicenumber');
-    }
-
-
 }

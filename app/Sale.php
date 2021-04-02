@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Sale extends Model
 {
     protected $table = 'sales';
-    protected $fillable = [];
+    protected $fillable = ['customerid'];
     public $timestamps = false;
 
+
     public function customer(){
-        return $this->belongsTo('\App\Customer', 'customerid');
+        return $this->belongsTo('App\Customer', 'customerid');
     }
 
     public function details(){

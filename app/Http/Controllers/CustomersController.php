@@ -12,6 +12,7 @@ class CustomersController extends BaseController
 {
 
     public function getCustomers($customerid = null){
+    
         if($customerid){
             $customers = \App\Customer::where('customerid', $customerid)->get();
             return $this->sendResponse('Success', $customers); 
